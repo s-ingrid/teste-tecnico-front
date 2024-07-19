@@ -8,7 +8,7 @@ Acreditamos que este desafio pode ser resolvido em cerca de 40 horas de codifica
 
 ## O desafio
 
-Você irá construir uma mini-aplicação para controle de usuários. A aplicação deverá permitir a criação, edição, exclusão e busca. Além disso, esperamos que você deixe o CRUD mais robuscado contendo:
+Você irá construir uma mini-aplicação para controle de usuários. A aplicação deverá permitir a criação, edição, exclusão e busca de usuários. Além disso, esperamos que você torne o CRUD mais robusto, contendo:
 - Autenticação
 - Validação nos formulários
 - Paginação
