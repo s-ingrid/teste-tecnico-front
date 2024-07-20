@@ -1,14 +1,19 @@
 <template>
    <div id="app">
-      <router-view />
+        <Layout v-if="isLoggedIn"></Layout>
+        <router-view v-else />
    </div>
 </template>
 
 <script>
 import { computed, defineComponent, onMounted, toRefs, reactive } from 'vue'
 import { useStore } from 'vuex'
+import Layout from './views/Layout.vue'
 
 export default defineComponent({
+    components: {
+        Layout
+    },
     setup(props, { emit }) {
         const store = useStore()
         const state = reactive({ })
