@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import { authGuard } from '../axios/authGuard'
+import { authGuard } from './authGuard'
 
 const routes = [
     {
@@ -8,8 +8,15 @@ const routes = [
         component: () => import(/* webpackChunkName: "login" */ '../components/AuthFormManager.vue')
     },
     {
-        name: 'Dashboard',
-        path: '/dashboard',
+        name: 'Home',
+        path: '/',
+        beforeEnter: authGuard,
+        meta: { requiresAuth: true },
+        component: () => import(/* webpackChunkName: "dashboard" */ '../views/HomeView.vue')
+    },
+    {
+        name: 'Usuários',
+        path: '/usuarios',
         beforeEnter: authGuard,
         meta: { requiresAuth: true },
         component: () => import(/* webpackChunkName: "dashboard" */ '../components/Dashboard.vue')
