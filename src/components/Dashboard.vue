@@ -1,29 +1,28 @@
 <template>
-    
+    <section class="mx-16 my-10">
+        <div class="grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2">
+            <BarChart />
+            <PieChart />
+            <VerticalBarChart />
+            <LineChart />
+        </div>
+    </section>
 </template>
 
 
 <script>
-import { computed, defineComponent, onMounted, toRefs, reactive } from 'vue'
-import { useStore } from 'vuex'
+import { defineComponent } from 'vue'
+import BarChart from './BarChart.vue'
+import PieChart from './PieChart.vue'
+import VerticalBarChart from './VerticalBarChart.vue'
+import LineChart from './LineChart.vue'
 
 export default defineComponent({
-    setup(props, { emit }) {
-        const store = useStore()
-        const state = reactive({ })
-
-        onMounted(() => {
-            store.dispatch('CHECK_TOKEN')
-        })
-
-        const isLoggedIn = computed(() => {
-            return store.getters.isLoggedIn
-        })
-
-        return {
-            ...toRefs(state),
-            isLoggedIn
-        }
+    components: {
+        BarChart,
+        PieChart,
+        VerticalBarChart,
+        LineChart,
     }
 })
 </script>
