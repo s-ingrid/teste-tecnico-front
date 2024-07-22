@@ -43,6 +43,7 @@ export default defineComponent({
             show: false,
           },
         },
+        colors: ['#b2d03e'],
         stroke: {
           curve: "smooth",
         },

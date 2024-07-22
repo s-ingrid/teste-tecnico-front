@@ -27,6 +27,7 @@ export default defineComponent({
           height: 350
         },
         labels: ["Cadastrados", "Excluídos"],
+        colors: ['#b2d03e', '#58adfe'],
         title: {
           text: 'Proporção de Usuários Cadastrados e Excluídos'
         },

@@ -39,6 +39,7 @@ export default defineComponent({
             horizontal: true
           }
         },
+        colors: ['#b2d03e'],
         dataLabels: {
           enabled: false
         },

@@ -21,12 +21,15 @@ export default defineComponent({
   setup() {
     const state = reactive({
       series: [{
-        data: [1, 1, 1, 1, 1, 1]
+        data: [1, 2, 1, 1, 2, 3]
       }],
       chartOptions: {
         chart: {
           type: 'bar',
-          height: 350
+          height: 350,
+          toolbar: {
+            show: false,
+          },
         },
         plotOptions: {
           bar: {
@@ -36,6 +39,7 @@ export default defineComponent({
         dataLabels: {
           enabled: false
         },
+        colors: ['#58adfe'],
         xaxis: {
           categories: ["B", "G", "L", "M", "R", "T"]
         },
