@@ -1,45 +1,48 @@
 <template>
-    <section>
-        <div class="flex justify-end mx-16 mt-10">
-            <button @click="isModalOpen = true" class="px-4 py-2 text-sm font-medium text-white bg-blue-500 rounded-lg shadow-sm disabled:bg-gray-300 disabled:cursor-not-allowed">Criar usuário</button>
-        </div>
-        <div class="grid gap-4 mx-16 my-10 lg:grid-cols-3">
-            <section class="d-flex" v-for="(user, index) in users" :key="index">
-                <div
-                    class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-100 dark:border-gray-200">
-                    <div class="flex justify-end px-4 pt-4">
-                        <DropdownActionsMenu :options="dropdownOptions" @action="handleAction" :user="user" />
-                    </div>
-                    <div class="flex flex-col items-center pb-10">
-                        <img class="w-24 h-24 mb-3 rounded-full shadow-lg" :src="user.avatar" alt="Bonnie image" />
-                        <h5 class="mb-1 text-xl font-medium text-gray-900 dark:text-gray">{{ user.first_name }} {{ user.last_name }}</h5>
-                        <span class="text-sm text-gray-500 dark:text-gray-600">{{ user.email }}</span>
-                    </div>
+    <section class="mt-28">
+        <div>
+            <div class="flex justify-end mx-16 mt-10">
+                <button @click="isModalOpen = true" class="px-4 py-2 text-lg font-medium text-white bg-blue-500 rounded-lg shadow-sm">Criar usuário</button>
+            </div>
+            <section class="mx-16 my-10">
+                <div class="grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3">
+                    <section v-for="(user, index) in users" :key="index">
+                        <article class="max-w-full bg-white border border-gray-200 rounded-lg shadow-lg dark:bg-gray-100 dark:border-gray-200 p-6">
+                            <header class="flex justify-end px-4 pt-4">
+                                <DropdownActionsMenu :options="dropdownOptions" @action="handleAction" :user="user" />
+                            </header>
+                            <div class="flex flex-col items-center pb-10">
+                                <img class="w-24 h-24 mb-3 rounded-full shadow-lg" :src="user.avatar" :alt="`Avatar de ${user.first_name} ${user.last_name}`" />
+                                <h2 class="mb-1 text-xl font-medium text-gray-900 dark:text-gray">{{ user.first_name }} {{ user.last_name }}</h2>
+                                <p class="text-sm text-gray-500 dark:text-gray-600">{{ user.email }}</p>
+                            </div>
+                        </article>
+                    </section>
                 </div>
             </section>
         </div>
+        <UserFormManager
+            v-if="isModalOpen"
+            :user="selectedUser"
+            @close="handleClose"
+            @save="saveUser"
+        />
+        <ConfirmationModal
+            :isVisible="openDialogDelete"
+            :dialog="dialog"
+            @close="openDialogDelete = false"
+            @confirm="deleteUser(selectedUser)"
+        />
     </section>
-    <UserFormManager
-        v-if="isModalOpen"
-        :user="selectedUser"
-        @close="handleClose()"
-        @save="saveUser"
-    />
-    <ConfirmationModal
-        :isVisible="openDialogDelete"
-        :dialog="dialog"
-        @close="openDialogDelete = false"
-        @confirm="deleteUser(selectedUser)"
-    />
 </template>
 
 <script>
 import { computed, defineComponent, reactive, toRefs } from 'vue'
 import UserManagerService from '../services/UserManagerService'
 import DropdownActionsMenu from './DropdownActionsMenu.vue'
-import { toast } from 'vue3-toastify'
 import UserFormManager from './UserFormManager.vue'
 import ConfirmationModal from './ConfirmationModal.vue'
+import { toast } from 'vue3-toastify'
 
 export default defineComponent({
     components: {

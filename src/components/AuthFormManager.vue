@@ -10,10 +10,10 @@
                         <div class="mt-2">
                             <input id="email" v-model="form.email" type="email" autocomplete="email"
                                 :class="{ 'input-error': isSubmitted && !form.email }"
-                                class=" border w-full h-5 px-3 py-5 mt-2 hover:outline-none focus:outline-none focus:ring-1 focus:ring-indigo-600 rounded-md"
-                            >
+                                class=" border w-full h-5 px-3 py-5 mt-2 hover:outline-none focus:outline-none focus:ring-1 focus:ring-indigo-600 rounded-md">
                         </div>
-                        <small class="error-message mt-1" v-if="isSubmitted && !form.email">Preenchimento obrigatório</small>
+                        <small class="error-message mt-1" v-if="isSubmitted && !form.email">Preenchimento
+                            obrigatório</small>
                         <div class="flex items-center justify-between mt-3">
                             <label for="password"
                                 class="block text-sm font-medium leading-6 text-gray-900">Senha</label>
@@ -21,10 +21,10 @@
                         <div class="mt-2">
                             <input id="password" v-model="form.password" type="password" autocomplete="current-password"
                                 :class="{ 'input-error': isSubmitted && !form.password }"
-                                class=" border w-full h-5 px-3 py-5 mt-2 hover:outline-none focus:outline-none focus:ring-1 focus:ring-indigo-600 rounded-md"
-                            >
+                                class=" border w-full h-5 px-3 py-5 mt-2 hover:outline-none focus:outline-none focus:ring-1 focus:ring-indigo-600 rounded-md">
                         </div>
-                        <small class="error-message mt-1" v-if="isSubmitted && !form.password">Preenchimento obrigatório</small>
+                        <small class="error-message mt-1" v-if="isSubmitted && !form.password">Preenchimento
+                            obrigatório</small>
                         <div>
                             <button type="submit"
                                 class="flex w-full mt-5 justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Entrar</button>
@@ -35,7 +35,6 @@
         </div>
     </div>
 </template>
-
 
 <script>
 import { defineComponent, onMounted, toRefs, reactive } from 'vue'
@@ -65,14 +64,13 @@ export default defineComponent({
                 if (response.token) {
                     const token = response.token
                     store.dispatch('LOGIN', token)
-                    router.push('/dashboard')
+                    router.push('/')
                 }
             } catch (error) {
                 console.error("Erro ao tentar fazer o login.", error)
             }
         }
         const validateForm = async () => {
-            console.log('aqui')
             state.isSubmitted = true
             if (!state.form.email || !state.form.password || state.form.password.length < 3) {
                 return false
