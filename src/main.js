@@ -6,10 +6,12 @@ import store from './store'
 import Vue3Toasity from 'vue3-toastify'
 import 'vue3-toastify/dist/index.css'
 import VueApexCharts from "vue3-apexcharts"
+import { MotionPlugin } from '@vueuse/motion'
 
 const app = createApp(App)
 app.use(router)
 app.use(store)
+app.use(MotionPlugin)
 app.use(Vue3Toasity)
 app.use(VueApexCharts)
 app.mount('#app')
