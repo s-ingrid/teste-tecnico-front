@@ -1,60 +1,60 @@
-# Teste técnico para desenvolvedor(a) frond-end (Vue js)
+# Teste Técnico Frontend
+- Este é um projeto frontend desenvolvido com Vue.js 3, Vite e outras tecnologias modernas. O projeto inclui funcionalidades básicas para gerenciamento de usuários, com operações de criar, editar e excluir usuários.
 
-## Instruções do teste
+## Tecnologias Utilizadas
+- Vue.js: 3.x
+- Vite: 5.x
+- Tailwind CSS: 3.x
+- Vitest: 2.x (para testes unitários)
+- Vue Test Utils: 2.x
+- Axios: 1.x
+- ApexCharts (Vue 3): 1.x
+- Vue Router: 4.x
+- Vuex: 4.x
+- VueUse Motion: 2.x
+- Vue3 Toastify: 0.x
+- Jsdom: 24.x
+- Happy DOM: 14.x
 
-Você deverá criar um `fork` deste projeto, e desenvolver em cima do seu fork. Utilize o README principal do seu repositório para descrever como foi resolver o teste, as decisões que você tomou, como organizou e estruturou seu código, e, especialmente, para fornecer as instruções de execução do projeto. Lembre-se de que o primeiro a rodar seu projeto será um programador backend da nossa equipe. Se você conseguir explicar claramente para ele como fazer isso, já estará começando com o pé direito!
+## Configuração do Ambiente
+- Requisitos:
+- Node.js (versão 16.x ou superior)
 
-Acreditamos que este desafio pode ser resolvido em cerca de 40 horas de codificação (5 dias corridos).
+## Instalação
+1 Clone o repositório:
+````
+git clone https://github.com/s-ingrid/teste-tecnico-front.git
+````
+2. Navegue até o diretório do projeto:
+````
+cd teste-tecnico-front
+````
+3. Instale as dependências:
+````
+npm install
+````
+4.Inicie o servidor de desenvolvimento:
+````
+npm run dev
+````
+5. Para rodar os testes unitários, use:
+````
+npm run test:unit
+````
+## Estrutura do Projeto
+* src/: Código-fonte do projeto
+* components/: Componentes Vue.js
+* services/: Serviços de API
+* views/: Páginas e visualizações
+* tests/: Testes unitários
+* public/: Arquivos públicos estáticos
+* vite.config.js: Configuração do Vite
+* vitest.config.js: Configuração do Vitest
 
-## O desafio
+## Scripts Disponíveis
+* npm run dev: Inicia o servidor de desenvolvimento com Vite.
+* npm run build: Compila o projeto para produção.
+* npm run preview: Visualiza o build de produção localmente.
+* npm run test:unit: Executa os testes unitários com Vitest.
+* npx vitest run --coverage: Executa os testes e gera relatórios de cobertura com Vitest.
 
-Você irá construir uma mini-aplicação para controle de usuários. A aplicação deverá permitir a criação, edição, exclusão e busca de usuários. Além disso, esperamos que você torne o CRUD mais robusto, contendo:
-- Autenticação
-- Validação nos formulários
-- Paginação
-- Filtro de busca
-
-Utilize a api **https://reqres.in/** para consumir os endpoints necessários.
-
-Por fim, precisamos apresentar essas informações de forma intuitiva e dinâmica para o usuário. Esperamos que você desenvolva um dashboard contendo alguns indicadores e gráficos (fique livre para escolher as informações que serão usadas no dash)
-
-#### Observações
-- É interessante o código ter tratamento de erros e feedbacks visuais para o usuário.
-- Para os gráficos recomendamos que utilize o apex charts, porém sinta-se livre para usar outra lib de sua escolha
-
-## O que nós esperamos do seu teste
-- Ver na solução a utilização do Vue Js na versão 3
-- Ver a utilização de dependency managers (npm, webpack)
-- Um HTML escrito da maneira mais semântica possível (HTML5/5.1)
-- Um código bem escrito (Modularização, Nomenclaturas, Padronização, Reutilização, etc)
-- Mobile first e layout responsivo
-- Testes unitários
-
-### O que nos impressionaria
-- Alguma metodologia para definição e organização do seu código CSS/Tailwind
-- Testes de aceitação
-- Aplicação de animações em css quando possível e tome cuidado com a performance
-- Ver o código rodando live (Heroku, Firebase Hosting, Bucket estático S3, etc )
-
-### O que nós não gostaríamos
-
-- Descobrir que não foi você quem fez seu teste
-- Ver commits grandes, sem muita explicação nas mensagens
-- Não conseguir rodar o projeto localmente (lembre-se de detalhar o passo-a-passo para a configuração do mesmo)
-
-## O que avaliaremos de seu teste
-
-- Histórico de commits do git
-- As instruções de como rodar o projeto
-- Organização, semântica, estrutura, legibilidade, manutenibilidade do seu código
-- Alcance dos objetivos propostos
-- Adaptação mobile (layout responsivo)
-- Componentização e extensibilidade dos componentes Javascript
-
-## Processo de submissão
-
-Ao finalizar, responda o email que lhe foi enviado contendo o link do seu repositório
-
-Qualquer dúvida em relação ao desafio, responderemos por e-mail.
-
-Bom trabalho!
