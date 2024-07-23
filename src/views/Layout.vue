@@ -5,8 +5,8 @@
             @toggle-menu="toggleMenu()"
             :isMenuOpen="isMenuOpen"
         />
-        <div>
-            <UserList />
+        <div class="mt-20">
+            <router-view></router-view>
         </div>
     </main>
 </template>
