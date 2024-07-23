@@ -12,14 +12,14 @@ const routes = [
         path: '/',
         beforeEnter: authGuard,
         meta: { requiresAuth: true },
-        component: () => import(/* webpackChunkName: "dashboard" */ '../views/HomeView.vue')
+        component: () => import(/* webpackChunkName: "home" */ '../views/HomeView.vue')
     },
     {
         name: 'Usuários',
         path: '/usuarios',
         beforeEnter: authGuard,
         meta: { requiresAuth: true },
-        component: () => import(/* webpackChunkName: "dashboard" */ '../components/Dashboard.vue')
+        component: () => import(/* webpackChunkName: "dashboard" */ '../components/UserList.vue')
     },
 ]
 

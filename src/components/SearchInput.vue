@@ -1,18 +1,18 @@
 <template>
-    <div class="relative">
+    <div class="margin-top-mobile absolute mx-16 w-96">
       <input
         v-model="searchTerm"
         @input="onInput"
         type="text"
         placeholder="Pesquisar usuário..."
-        class="w-full px-4 py-2 border rounded"
+        class="px-4 py-2 border rounded"
       />
       <button
         v-if="searchTerm"
         @click="clearSearch"
-        class="absolute right-2 top-2"
+        class="absolute mx-2 right-2 top-2"
       >
-        Limpar
+        x
       </button>
     </div>
   </template>
@@ -43,3 +43,12 @@
       }
   })
   </script>
+
+<style scoped>
+@media (max-width:767.98px) {
+  .margin-top-mobile {
+    position: relative;
+    margin-bottom: -70px;
+  }
+}
+</style>

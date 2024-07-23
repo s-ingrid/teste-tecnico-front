@@ -12,7 +12,7 @@
                                 <DropdownActionsMenu :options="dropdownOptions" @action="handleAction" :user="user" />
                             </header>
                             <div class="flex flex-col items-center pb-10">
-                                <img class="w-24 h-24 mb-3 rounded-full shadow-lg" :src="user.avatar" :alt="`Avatar de ${user.first_name} ${user.last_name}`" />
+                                <img class="w-24 h-24 mb-3 rounded-full shadow-lg" :src="user.avatar ? user.avatar : '../assets/user-1.png'" :alt="`Avatar de ${user.first_name} ${user.last_name}`" />
                                 <h2 class="mb-1 text-xl font-medium text-gray-900 dark:text-gray">{{ user.first_name }} {{ user.last_name }}</h2>
                                 <p class="text-sm text-gray-500 dark:text-gray-600">{{ user.email }}</p>
                             </div>
@@ -56,7 +56,7 @@ export default defineComponent({
             default: () => {}
         }
     },
-    setup() {
+    setup(props, { emit }) {
         const state = reactive({
             dropdownOptions: [
                 {
@@ -96,9 +96,11 @@ export default defineComponent({
         const saveUser = async (user) => {
             try {
                 if (user.id) {
-                    await UserManagerService.updateUser(user.id, user)
+                    const response = await UserManagerService.updateUser(user.id, user)
+                    emit('editUser', response)
                 } else {
-                    await UserManagerService.createUser(user)
+                    const response = await UserManagerService.createUser(user)
+                    emit('createUser', response)
                 }
                 handleClose()
                 toast("Usuário salvo com sucesso!", {
@@ -115,6 +117,7 @@ export default defineComponent({
         const deleteUser = async (user) => {
             try {
                 await UserManagerService.deleteUser(user.id)
+                emit('deleteUser', user.id)
                 state.openDialogDelete = false
                 handleClose()
                 toast("Usuário excluído com sucesso!", {

@@ -28,15 +28,6 @@ export default {
             throw error
         }
     },
-    async getUser(userId) {
-        try {
-            const response = await axiosInstance.get(`/users/${userId}`)
-            return response.data
-        } catch (error) {
-            console.error("Erro API listar usuário:", error)
-            throw error
-        }
-    },
     async getAllUsers(page = 1) {
         try {
             const response = await axiosInstance.get(`/users?page=${page}`)
