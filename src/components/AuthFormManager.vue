@@ -41,6 +41,7 @@ import { defineComponent, onMounted, toRefs, reactive } from 'vue'
 import UserAuthService from '../services/UserAuthService'
 import { useStore } from 'vuex'
 import { useRouter } from 'vue-router'
+import { toast } from 'vue3-toastify'
 
 export default defineComponent({
     setup() {
@@ -67,6 +68,10 @@ export default defineComponent({
                     router.push('/')
                 }
             } catch (error) {
+                toast("Erro ao tentar fazer login.", {
+                    "type": "error",
+                    autoClose: 3000,
+                })
                 console.error("Erro ao tentar fazer o login.", error)
             }
         }
